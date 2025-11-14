@@ -64,12 +64,12 @@ function GameScreen({ userNumber, onGameOver }) {
         </InstructionText>
         <View style={gameScrnStyles.buttonsContainer}>
           <View style={gameScrnStyles.buttonContainer}>
-            <PrimaryButton onPressed={nextGuessHandler.bind(this, "greater")}>
+            <PrimaryButton onPressed={nextGuessHandler.bind(this, "lower")}>
               <Ionicons name="remove" size={24} color="white" />
             </PrimaryButton>
           </View>
           <View style={gameScrnStyles.buttonContainer}>
-            <PrimaryButton onPressed={nextGuessHandler.bind(this, "lower")}>
+            <PrimaryButton onPressed={nextGuessHandler.bind(this, "greater")}>
               <Ionicons name="add" size={24} color="white" />
             </PrimaryButton>
           </View>
