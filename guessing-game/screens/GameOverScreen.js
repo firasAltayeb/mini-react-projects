@@ -13,11 +13,11 @@ function GameOverScreen({ roundsNumber, userNumber, onStartNewGame }) {
           source={require("../assets/images/success.png")}
         />
       </View>
-      <Text Text style={gameOverScrnStyles.summaryText}>
+      <Text style={gameOverScrnStyles.summaryText}>
         Your phone needed{" "}
-        <Text style={gameOverScrnStyles.highlightText}>roundsNumber</Text>{" "}
+        <Text style={gameOverScrnStyles.highlightText}>{roundsNumber}</Text>{" "}
         rounds to guess the number{" "}
-        <Text style={gameOverScrnStyles.highlightText}>userNumber</Text>
+        <Text style={gameOverScrnStyles.highlightText}>{userNumber}</Text>
       </Text>
       <PrimaryButton onPressed={onStartNewGame}>Start New Game</PrimaryButton>
     </View>
