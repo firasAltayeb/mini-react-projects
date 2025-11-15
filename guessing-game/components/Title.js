@@ -16,5 +16,7 @@ const titleStyles = StyleSheet.create({
     borderColor: "white",
     padding: 12,
     marginBottom: 40,
+    maxWidth: "80%",
+    width: 300,
   },
 });
