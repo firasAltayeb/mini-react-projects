@@ -30,7 +30,6 @@ const gameOverScrnStyles = StyleSheet.create({
   rootContainer: {
     flex: 1,
     padding: 24,
-    justifyContent: "center",
     alignItems: "center",
   },
   imageContainer: {

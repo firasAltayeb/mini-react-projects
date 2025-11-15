@@ -33,7 +33,9 @@ function StartGameScreen({ onPickNumber }) {
     <View style={styles.rootContainer}>
       <Title>Guess My Number</Title>
       <Card>
-        <InstructionText>Enter a Number</InstructionText>
+        <InstructionText style={styles.instruction}>
+          Enter a Number
+        </InstructionText>
         <TextInput
           style={styles.numberInput}
           maxLength={2}
@@ -63,24 +65,29 @@ export default StartGameScreen;
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
-    marginTop: 100,
+    marginTop: 66,
     alignItems: "center",
   },
   numberInput: {
     height: 50,
-    width: 50,
+    width: 100,
     fontSize: 32,
     borderBottomColor: Colors.accent500,
     borderBottomWidth: 2,
     color: Colors.accent500,
-    marginVertical: 8,
-    fontWeight: "bold",
+    marginVertical: 10,
     textAlign: "center",
   },
   buttonsContainer: {
     flexDirection: "row",
+    marginTop: 22,
+    marginBottom: 8,
   },
   buttonContainer: {
     flex: 1,
+  },
+  instruction: {
+    marginBottom: 10,
+    fontFamily: "open-sans-bold",
   },
 });

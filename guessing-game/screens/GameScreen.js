@@ -59,10 +59,8 @@ function GameScreen({ userNumber, onGameOver }) {
       currentGuess
     );
     setCurrentGuess(newRndNumber);
-    setGuessRounds((prevGuessess) => [newRndNumber, ...prevGuessess]);
+    setGuessRounds((prevGuessess) => [...prevGuessess, newRndNumber]);
   }
-
-  const guessRoundsListLength = guessRounds.length;
 
   return (
     <View style={gameScrnStyles.screen}>
@@ -90,7 +88,7 @@ function GameScreen({ userNumber, onGameOver }) {
           data={guessRounds}
           renderItem={(itemData) => (
             <GuessLogItem
-              roundNumber={guessRoundsListLength - itemData.index}
+              roundNumber={itemData.index + 1}
               guess={itemData.item}
             />
           )}
