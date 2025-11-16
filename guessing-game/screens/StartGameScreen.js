@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { TextInput, View, StyleSheet, Alert } from "react-native";
+import {
+  TextInput,
+  View,
+  StyleSheet,
+  Alert,
+  useWindowDimensions,
+} from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 import Title from "../components/Title";
 import Colors from "../constants/colors";
@@ -8,6 +14,8 @@ import InstructionText from "../components/InstructionText";
 
 function StartGameScreen({ onPickNumber }) {
   const [enteredNumber, setEnteredNumber] = useState("");
+
+  const { width, height } = useWindowDimensions();
 
   function numberInputHandler(enteredText) {
     setEnteredNumber(enteredText);
@@ -30,14 +38,14 @@ function StartGameScreen({ onPickNumber }) {
   }
 
   return (
-    <View style={styles.rootContainer}>
+    <View style={[styles.rootContainer, { marginTop: height < 400 ? 30 : 66 }]}>
       <Title>Guess My Number</Title>
       <Card>
         <InstructionText style={styles.instruction}>
           Enter a Number
         </InstructionText>
         <TextInput
-          style={styles.numberInput}
+          style={[styles.numberInput]}
           maxLength={2}
           keyboardType="number-pad"
           autoCapitalize="none"
@@ -45,7 +53,12 @@ function StartGameScreen({ onPickNumber }) {
           value={enteredNumber}
           onChangeText={numberInputHandler}
         />
-        <View style={styles.buttonsContainer}>
+        <View
+          style={[
+            styles.buttonsContainer,
+            { marginTop: height < 400 ? 11 : 22 },
+          ]}
+        >
           <View style={styles.buttonContainer}>
             <PrimaryButton onPressed={resetInputHandler}>Reset</PrimaryButton>
           </View>
@@ -65,22 +78,20 @@ export default StartGameScreen;
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
-    marginTop: 66,
     alignItems: "center",
   },
   numberInput: {
     height: 50,
     width: 100,
-    fontSize: 32,
     borderBottomColor: Colors.accent500,
     borderBottomWidth: 2,
     color: Colors.accent500,
     marginVertical: 10,
     textAlign: "center",
+    fontSize: 32,
   },
   buttonsContainer: {
     flexDirection: "row",
-    marginTop: 22,
     marginBottom: 8,
   },
   buttonContainer: {
