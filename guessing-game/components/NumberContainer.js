@@ -5,12 +5,7 @@ function NumberContainer({ children }) {
   const { height } = useWindowDimensions();
 
   return (
-    <View
-      style={[
-        containerStyles.container,
-        { paddingVertical: height < 400 ? 12 : 24 },
-      ]}
-    >
+    <View style={[containerStyles.container]}>
       <Text
         style={[
           containerStyles.numberText,
@@ -33,6 +28,8 @@ const containerStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 24,
+    paddingVertical: 24,
+    marginHorizontal: 24,
   },
   numberText: {
     fontFamily: "open-sans-bold",

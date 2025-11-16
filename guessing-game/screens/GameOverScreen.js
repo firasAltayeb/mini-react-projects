@@ -4,6 +4,7 @@ import {
   Image,
   StyleSheet,
   useWindowDimensions,
+  ScrollView,
 } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 import Title from "../components/Title";
@@ -15,38 +16,40 @@ function GameOverScreen({ roundsNumber, userNumber, onStartNewGame }) {
   const imageSize = height < 400 ? 150 : 300;
 
   return (
-    <View style={gameOverScrnStyles.rootContainer}>
-      <Title>Game Over!</Title>
-      <View
-        style={[
-          gameOverScrnStyles.imageContainer,
-          {
-            width: imageSize,
-            height: imageSize,
-            borderRadius: imageSize / 2,
-          },
-        ]}
-      >
-        <Image
-          style={gameOverScrnStyles.imageStyle}
-          source={require("../assets/images/success.png")}
-        />
+    <ScrollView style={{ flex: 1 }}>
+      <View style={gameOverScrnStyles.rootContainer}>
+        <Title>Game Over!</Title>
+        <View
+          style={[
+            gameOverScrnStyles.imageContainer,
+            {
+              width: imageSize,
+              height: imageSize,
+              borderRadius: imageSize / 2,
+            },
+          ]}
+        >
+          <Image
+            style={gameOverScrnStyles.imageStyle}
+            source={require("../assets/images/success.png")}
+          />
+        </View>
+        <Text
+          style={[
+            gameOverScrnStyles.summaryText,
+            {
+              marginVertical: height < 400 ? 12 : 24,
+            },
+          ]}
+        >
+          Your phone needed{" "}
+          <Text style={gameOverScrnStyles.highlightText}>{roundsNumber}</Text>{" "}
+          rounds to guess the number{" "}
+          <Text style={gameOverScrnStyles.highlightText}>{userNumber}</Text>
+        </Text>
+        <PrimaryButton onPressed={onStartNewGame}>Start New Game</PrimaryButton>
       </View>
-      <Text
-        style={[
-          gameOverScrnStyles.summaryText,
-          {
-            marginVertical: height < 400 ? 12 : 24,
-          },
-        ]}
-      >
-        Your phone needed{" "}
-        <Text style={gameOverScrnStyles.highlightText}>{roundsNumber}</Text>{" "}
-        rounds to guess the number{" "}
-        <Text style={gameOverScrnStyles.highlightText}>{userNumber}</Text>
-      </Text>
-      <PrimaryButton onPressed={onStartNewGame}>Start New Game</PrimaryButton>
-    </View>
+    </ScrollView>
   );
 }
 
