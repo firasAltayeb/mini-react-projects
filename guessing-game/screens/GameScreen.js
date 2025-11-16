@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Alert, FlatList } from "react-native";
+import { View, StyleSheet, Alert, FlatList } from "react-native";
 import Title from "../components/Title";
 import { useState, useEffect } from "react";
 import NumberContainer from "../components/NumberContainer";
