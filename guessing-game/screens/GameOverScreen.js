@@ -1,19 +1,45 @@
-import { Text, View, Image, StyleSheet, Dimensions } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  StyleSheet,
+  useWindowDimensions,
+} from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 import Title from "../components/Title";
 import Colors from "../constants/colors";
 
 function GameOverScreen({ roundsNumber, userNumber, onStartNewGame }) {
+  const { height } = useWindowDimensions();
+
+  const imageSize = height < 400 ? 150 : 300;
+
   return (
     <View style={gameOverScrnStyles.rootContainer}>
       <Title>Game Over!</Title>
-      <View style={gameOverScrnStyles.imageContainer}>
+      <View
+        style={[
+          gameOverScrnStyles.imageContainer,
+          {
+            width: imageSize,
+            height: imageSize,
+            borderRadius: imageSize / 2,
+          },
+        ]}
+      >
         <Image
           style={gameOverScrnStyles.imageStyle}
           source={require("../assets/images/success.png")}
         />
       </View>
-      <Text style={gameOverScrnStyles.summaryText}>
+      <Text
+        style={[
+          gameOverScrnStyles.summaryText,
+          {
+            marginVertical: height < 400 ? 12 : 24,
+          },
+        ]}
+      >
         Your phone needed{" "}
         <Text style={gameOverScrnStyles.highlightText}>{roundsNumber}</Text>{" "}
         rounds to guess the number{" "}
@@ -26,8 +52,6 @@ function GameOverScreen({ roundsNumber, userNumber, onStartNewGame }) {
 
 export default GameOverScreen;
 
-const deviceWidth = Dimensions.get("window").width;
-
 const gameOverScrnStyles = StyleSheet.create({
   rootContainer: {
     flex: 1,
@@ -35,9 +59,6 @@ const gameOverScrnStyles = StyleSheet.create({
     alignItems: "center",
   },
   imageContainer: {
-    width: deviceWidth < 400 ? 150 : 300,
-    height: deviceWidth < 400 ? 150 : 300,
-    borderRadius: deviceWidth < 400 ? 75 : 150,
     borderWidth: 3,
     borderColor: Colors.primary800,
     overflow: "hidden",
@@ -50,7 +71,6 @@ const gameOverScrnStyles = StyleSheet.create({
     fontFamily: "open-sans",
     fontSize: 24,
     textAlign: "center",
-    marginVertical: 24,
   },
   highlightText: {
     fontFamily: "open-sans-bold",

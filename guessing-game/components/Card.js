@@ -2,14 +2,14 @@ import { StyleSheet, View, useWindowDimensions } from "react-native";
 import Colors from "../constants/colors";
 
 function Card({ children }) {
-  const { width, height } = useWindowDimensions();
+  const { height } = useWindowDimensions();
 
   return (
     <View
       style={[
         styles.card,
         {
-          marginTop: height < 400 ? 0 : 36,
+          marginTop: height < 400 ? 22 : 36,
           width: height < 400 ? 400 : "80%",
         },
       ]}

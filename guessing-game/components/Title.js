@@ -1,7 +1,15 @@
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, useWindowDimensions } from "react-native";
 
 function Title({ children }) {
-  return <Text style={titleStyles.title}>{children}</Text>;
+  const { height } = useWindowDimensions();
+
+  const marginBottom = height < 400 ? 20 : 40;
+
+  return (
+    <Text style={[titleStyles.title, { marginBottom: marginBottom }]}>
+      {children}
+    </Text>
+  );
 }
 
 export default Title;
@@ -15,7 +23,6 @@ const titleStyles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "white",
     padding: 12,
-    marginBottom: 40,
     maxWidth: "80%",
     width: 300,
   },
