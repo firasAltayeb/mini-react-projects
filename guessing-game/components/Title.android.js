@@ -1,4 +1,4 @@
-import { Text, StyleSheet, useWindowDimensions } from "react-native";
+import { Text, StyleSheet, useWindowDimensions, Platform } from "react-native";
 
 function Title({ children }) {
   const { height } = useWindowDimensions();
