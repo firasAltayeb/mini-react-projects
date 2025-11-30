@@ -33,8 +33,9 @@ const styles = StyleSheet.create({
     elevation: 4,
     backgroundColor: "white",
     shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 8,
     overflow: Platform.OS === "android" ? "hidden" : "visible",
   },
   button: {
