@@ -6,7 +6,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MealOverviewScreen from "./screens/MealsOverviewScreen";
 import MealDetailScreen from "./screens/MealDetailScreen";
-// import FavoritesScreen from "./screens/FavoritesScreen";
+import FavoritesScreen from "./screens/FavoritesScreen";
 import { Ionicons } from "@expo/vector-icons";
 import FavoriteContextProvider from "./store/context/favorites-context";
 
@@ -36,7 +36,7 @@ function DrawerNavigator() {
           ),
         }}
       />
-      {/* <Drawer.Screen
+      <Drawer.Screen
         name="Favorites"
         component={FavoritesScreen}
         options={{
@@ -44,7 +44,7 @@ function DrawerNavigator() {
             <Ionicons name="star" color={color} size={size} />
           ),
         }}
-      /> */}
+      />
     </Drawer.Navigator>
   );
 }
