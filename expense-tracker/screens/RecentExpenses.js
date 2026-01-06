@@ -1,7 +1,21 @@
-import ExpensesOutput from "../components/ExpensesOutput";
+import { useContext } from "react";
 
-function RecentExpenses(params) {
-  return <ExpensesOutput expensesPeriod={"Last 7 days"} />;
+import ExpensesOutput from "../components/ExpensesOutput";
+import { ExpensesContext } from "../store/expenses-context";
+import { getDateMinusDays } from "../util/date";
+
+function RecentExpenses() {
+  const expensesCtx = useContext(ExpensesContext);
+
+  const recentExpenses = expensesCtx.expenses.filter((expenses) => {
+    const today = new Date();
+    const date7DaysAgp = getDateMinusDays(today, 7);
+    return expenses.date > date7DaysAgp;
+  });
+
+  return (
+    <ExpensesOutput expenses={recentExpenses} expensesPeriod={"Last 7 days"} />
+  );
 }
 
 export default RecentExpenses;
