@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { GlobalStyles } from "../constants/styles";
 
 function ExpensesSummary({ expenses, periodName }) {
